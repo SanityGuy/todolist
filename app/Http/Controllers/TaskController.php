@@ -33,6 +33,17 @@ class TaskController extends Controller
         return redirect()->route('tasks.index')->with('success','');
     }
 
+    public function edit(Task $task, Request $request)
+    {
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+        ]);
+
+        $task->update($validated);
+
+        return redirect()->route('tasks.index')->with('success','Task updated successfully!');
+    }
+
     public function destroy(Task $task)
     {
         $task->delete();
