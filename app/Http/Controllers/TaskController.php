@@ -16,13 +16,12 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'is_completed' => 'required|boolean'
+            'title' => 'required|string|max:255'
         ]);
 
         Task::create($validated);
 
-        return redirect()->route('tasks.index');
+        return redirect()->route('tasks.index')->with('success','Task created successfully!');
     }
 
     public function update(Task $task)
@@ -31,13 +30,13 @@ class TaskController extends Controller
             'is_completed' => !$task->is_completed,
         ]);
 
-        return redirect()->route('tasks.index');
+        return redirect()->route('tasks.index')->with('success','Task updated successfully!');
     }
 
     public function destroy(Task $task)
     {
         $task->delete();
 
-        return redirect()->route('tasks.index');
+        return redirect()->route('tasks.index')->with('success','Task deleted successfully!');
     }
 }

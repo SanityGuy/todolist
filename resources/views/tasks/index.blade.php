@@ -4,16 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laravel To-Do List</title>
+    <title>To-Do List</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="bg-slate-100 min-h-screen py-12 px-4">
 
     <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden p-6">
-        <h1 class="text-2xl font-bold text-slate-800 mb-6">My To-Do List</h1>
+        <h1 class="text-2xl font-bold text-slate-800 mb-6">Public To-Do List (temporaily)</h1>
 
-        <!-- Add Task Form -->
+        @if (session('success'))
+            <p
+                class="bg-emerald-500/40 border-2 border-emerald-600/60 p-2 rounded-xl text-sm font-bold text-center text-emerald-700 tracking-tight mb-3 mt-1">
+                {{ session('success') }}
+            </p>
+        @endif
+
         <form action="{{ route('tasks.store') }}" method="POST" class="flex gap-2 mb-6">
             @csrf
             <input type="text" name="title" placeholder="What needs to be done?" required
@@ -24,16 +30,13 @@
             </button>
         </form>
 
-        <!-- Validation Error -->
         @error('title')
             <p class="text-red-500 text-sm mb-4">{{ $message }}</p>
         @enderror
 
-        <!-- Task List -->
         <ul class="divide-y divide-slate-200">
             @forelse ($tasks as $task)
                 <li class="py-3 flex items-center justify-between gap-3">
-                    <!-- Toggle Complete -->
                     <form action="{{ route('tasks.update', $task) }}" method="POST" class="flex items-center gap-3 flex-1">
                         @csrf
                         @method('PATCH')
@@ -50,7 +53,6 @@
                         </button>
                     </form>
 
-                    <!-- Delete Task -->
                     <form action="{{ route('tasks.destroy', $task) }}" method="POST">
                         @csrf
                         @method('DELETE')
