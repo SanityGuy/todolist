@@ -64,7 +64,7 @@
 
                         <div class="flex items-center gap-3">
                             <a href="{{ route('tasks.index', ['edit' => $task->id]) }}"
-                                class="text-sm text-indigo-400 hover:text-indigo-300 font-medium">
+                                class="text-sm text-indigo-500 hover:text-indigo-600 font-medium">
                                 Edit
                             </a>
 
@@ -95,7 +95,7 @@
 
                             <div class="flex justify-end gap-2 mt-3">
                                 <a href="{{ route('tasks.index') }}"
-                                    class="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-500 text-white text-sm font-medium">
+                                    class="px-4 py-2 rounded-lg bg-rose-500 hover:bg-rose-600 text-white text-sm font-medium">
                                     Cancel
                                 </a>
 
