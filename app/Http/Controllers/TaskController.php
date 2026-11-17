@@ -30,7 +30,7 @@ class TaskController extends Controller
             'is_completed' => !$task->is_completed,
         ]);
 
-        return redirect()->route('tasks.index')->with('success','Task updated successfully!');
+        return redirect()->route('tasks.index')->with('success','');
     }
 
     public function destroy(Task $task)
