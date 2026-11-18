@@ -15,7 +15,19 @@
 <body class="bg-slate-950 min-h-screen py-12 px-4">
 
     <div class="max-w-xl mx-auto bg-slate-800 rounded-xl shadow-md overflow-hidden p-6">
-        <h1 class="text-2xl font-bold text-slate-100 mb-6">Public To-Do List (temporaily)</h1>
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-2xl font-bold text-slate-100">
+                Public To-Do List
+            </h1>
+
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit"
+                    class="bg-slate-800 border-2 border-rose-500 p-2 px-3 rounded-xl text-rose-500 font-medium tracking-wide hover:text-slate-800 hover:bg-rose-500 hover:border-rose-600 transition ease-in-out duration-200">
+                    Logout
+                </button>
+            </form>
+        </div>
 
         @if (session('success'))
             <p
