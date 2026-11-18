@@ -176,7 +176,20 @@
             @endforelse
         </ul>
     </div>
-
 </body>
+<footer class="w-full text-center text-white mt-5">
+    <div class="flex flex-wrap justify-center items-center gap-3">
+        <a class="inline-flex items-center gap-1.5 rounded-xl py-2 px-4 bg-slate-900/60 hover:bg-slate-900 border-2 border-slate-700 hover:border-indigo-600 text-sm font-medium text-indigo-500 hover:text-indigo-400 active:scale-95 active:bg-indigo-500 active:border-indigo-600/80 active:text-slate-900 transition duration-200"
+            href="https://github.com/SanityGuy/todolist" target="_blank" rel="noopener noreferrer">
+            <x-lucide-code class="h-5 w-5" />
+            Source Code
+        </a>
+        <a class="inline-flex items-center gap-1.5 rounded-xl py-2 px-4 bg-slate-900/60 hover:bg-slate-900 border-2 border-slate-700 hover:border-indigo-600 text-sm font-medium text-indigo-500 hover:text-indigo-400 active:scale-95 active:bg-indigo-500 active:border-indigo-600/80 active:text-slate-900 transition duration-200"
+            href="https://github.com/SanityGuy/todolist" target="_blank" rel="noopener noreferrer">
+            <x-lucide-coffee class="h-5 w-5" />
+            Support Me
+        </a>
+    </div>
+</footer>
 
 </html>
