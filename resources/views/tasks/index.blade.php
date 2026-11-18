@@ -40,9 +40,9 @@
         <form action="{{ route('tasks.store') }}" method="POST" class="flex gap-2 mb-6">
             @csrf
             <input type="text" name="title" placeholder="What needs to be done?" required
-                class="flex-1 rounded-xl border border-slate-300 px-4 py-2 text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+                class="flex-1 rounded-2xl border-2 border-slate-500 px-4 py-2 text-slate-100 focus:outline-none focus:ring focus:ring-indigo-500 transition ease duration-200">
             <button type="submit"
-                class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-8 py-2 rounded-lg transition cursor-pointer">
+                class="bg-slate-800 hover:bg-indigo-500 border-2 border-indigo-500 hover:border-indigo-600 text-white font-medium px-6 py-2 rounded-lg transition cursor-pointer ease duration-200">
                 Add
             </button>
         </form>
@@ -62,7 +62,7 @@
                             @method('PATCH')
                             <button type="submit" class="flex items-center gap-3 text-left cursor-pointer group">
                                 <span
-                                    class="h-5 w-5 rounded-full border-2 flex items-center justify-center {{ $task->is_completed ? 'bg-indigo-500 border-indigo-600 text-white' : 'border-slate-300 group-hover:border-indigo-500' }}">
+                                    class="h-5 w-5 rounded-full border-2 flex items-center justify-center {{ $task->is_completed ? 'bg-indigo-500 border-indigo-600 text-white' : 'border-slate-300 group-hover:border-indigo-500' }} transition ease duration-200">
                                     @if($task->is_completed)
                                         <x-lucide-check />
                                     @endif
@@ -76,7 +76,7 @@
 
                         <div class="flex items-center gap-3">
                             <a href="{{ route('tasks.index', ['edit' => $task->id]) }}"
-                                class="text-sm text-indigo-500 hover:text-indigo-600 font-medium">
+                                class="text-sm text-indigo-500 hover:text-indigo-600 font-bold tracking-wide">
                                 Edit
                             </a>
 
@@ -84,7 +84,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"
-                                    class="text-sm text-rose-500 hover:text-rose-400 font-medium cursor-pointer">
+                                    class="text-sm text-rose-500 hover:text-rose-400 font-bold tracking-wide cursor-pointer">
                                     Delete
                                 </button>
                             </form>
