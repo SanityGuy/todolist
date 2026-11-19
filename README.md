@@ -7,6 +7,13 @@ A simple modern to-do list website that allows you to create your own to do list
 - Vite
 - TailwindCSS
 
+## TODO
+- Make dashboard for the todolist
+- Store tasks per accounts
+- Create displaynames and profile pictures
+- Create not only to-do list but tasks, wishlists, bucket lists in one website
+- Create more security protection and better UI
+
 ## Contributions
 Currently this project is for my workspace to learn and create but contributions via suggestions & ideas are opened
 
