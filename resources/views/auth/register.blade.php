@@ -19,9 +19,35 @@
             </div>
         </div>
 
+        @if ($errors->any())
+            <div class="bg-rose-500/15 border border-rose-500/35 rounded-xl p-4 text-rose-400">
+                @foreach ($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                @endforeach
+            </div>
+        @endif
+
         <form action="{{ route('register.store') }}" method="POST" class="space-y-4">
             @csrf
-
+            <div>
+                <label for="displayname"
+                    class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">
+                    Display Name
+                </label>
+                <div class="relative">
+                    <x-lucide-user
+                        class="h-4 w-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    <input id="displayname" type="text" name="displayname" value="{{ old('displayname') }}"
+                        placeholder="Choose a username" required autofocus
+                        class="w-full h-11 bg-slate-950/70 border-2 border-slate-700/90 rounded-xl pl-10 pr-4 text-sm sm:text-base text-slate-100 placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30 transition-all duration-200 ease-out">
+                </div>
+                @error('displayname')
+                    <p class="flex items-center gap-1.5 text-rose-400 text-xs sm:text-sm font-medium mt-1.5">
+                        <x-lucide-alert-circle class="h-4 w-4 shrink-0" />
+                        <span>{{ $message }}</span>
+                    </p>
+                @enderror
+            </div>
             <div>
                 <label for="username"
                     class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">

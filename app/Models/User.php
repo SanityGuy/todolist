@@ -7,12 +7,20 @@ use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-#[Fillable(['name', 'email', 'password'])]
+#[Fillable(['name', 'password'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
-    protected $fillable = ['username', 'password'];
+    use HasFactory, Notifiable;
+    protected $fillable = ['displayname', 'username', 'password'];
+    protected $hidden = ['password','remember_token'];
+
+    public function tasks(): HasMany
+    {
+        return $this->hasMany(Task::class);
+    }
 }

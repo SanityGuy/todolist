@@ -20,4 +20,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/tasks/{task}', [TaskController::class, 'update'])->name('tasks.update');
     Route::put('/tasks/{task}', [TaskController::class, 'edit'])->name('tasks.edit');
     Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
+
+    Route::get('/profile', [AuthController::class, 'profile'])->name('profile');
+    Route::put('/profile', [AuthController::class, 'updateProfile'])->name('profile.update');
 });
