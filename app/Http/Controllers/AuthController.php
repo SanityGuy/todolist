@@ -31,7 +31,7 @@ class AuthController extends Controller
         Auth::login($user);
         $request->session()->regenerate();
 
-        return redirect()->route('tasks.index');
+        return redirect()->route('tasks.index')->with('success','Account successfully registered!');
     }
 
     public function login()
@@ -49,7 +49,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended(route('tasks.index'));
+            return redirect()->intended(route('tasks.index'))->with('success','Successfully logged in!');
         }
 
         return back()->withErrors([
