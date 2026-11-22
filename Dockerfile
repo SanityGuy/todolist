@@ -12,7 +12,7 @@ RUN npm run build
 FROM php:8.5-apache
 
 RUN apt-get update && apt-get install -y --no-install-recommends libpq-dev libzip-dev libonig-dev unzip git curl \
-    && docker-php-ext-install pdo_pgsql mbstring bcmath zip opcache \
+    && docker-php-ext-install pdo_pgsql mbstring bcmath zip \
     && a2enmod rewrite headers \
     && rm -rf /var/lib/apt/lists/*
 
